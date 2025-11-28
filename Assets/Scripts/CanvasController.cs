@@ -12,7 +12,7 @@ public class CanvasController : MonoBehaviour
         instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         // Feel free to remove the following!
         if (GetComponent<CanvasScaler>().uiScaleMode == CanvasScaler.ScaleMode.ConstantPixelSize)
@@ -28,9 +28,10 @@ public class CanvasController : MonoBehaviour
     /// Instantiate GameObject onto Canvas from ResourceFolder
     /// </summary>
     /// <param name="resourceName">Prefab path within "Resources/UI/"</param>
-    public void InstantiateMenu(string resourceName)
+    /// <return>The Instantiated GameObject (child of CanvasController)</return>
+    public GameObject InstantiateMenu(string resourceName)
     {
-        Instantiate((GameObject)Resources.Load($"UI/{resourceName}"), transform);
+        return Instantiate((GameObject)Resources.Load($"UI/{resourceName}"), transform);
     }
 
     private void Reset()
