@@ -34,7 +34,11 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
+    public void PlaySound(AudioClip clip)
+    {
+        try { gameObject.GetComponent<AudioSource>().PlayOneShot(clip); }
+        catch { gameObject.AddComponent<AudioSource>().PlayOneShot(clip); }
+    }
     public void ToggleSelf()
     {
         SetActive(!gameObject.activeInHierarchy);
