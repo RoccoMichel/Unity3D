@@ -30,7 +30,8 @@ public class GameController : MonoBehaviour
         if (!debug) return;
 
         // Text
-        GUI.Label(new Rect(10, 10, 100, 20), $"ms per frame: {System.Decimal.Round((decimal)(Time.deltaTime * 1000), 2)}");
+        GUI.Label(new Rect(10, 10, 200, 20), $"ms per frame: {System.Decimal.Round((decimal)(Time.deltaTime * 1000), 2)}");
+        GUI.Label(new Rect(10, 40, 200, 20), $"frame per second: {1f/Time.deltaTime}");
 
         // Buttons
         if (GUI.Button(new Rect(10, 40, 100, 20), "Reload")) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
